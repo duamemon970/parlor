@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashie's beauty parlor</title>
+<link rel="stylesheet" href="parlor.css">  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <div class="logo">✨ ashie's beauty parlor</div>
+      <ul class="nav-links">
+        <li><a class="nav-btn active" onclick="showPage('home-page', this)">Home</a></li>
+        <li><a class="nav-btn" onclick="showPage('services-page', this)">Services</a></li>
+        <li><a class="nav-btn" onclick="showPage('gallery-page', this)">Gallery</a></li>
+        <li><a class="nav-btn" onclick="showPage('booking-page', this)">Book Now</a></li>
+        <li><a class="nav-btn" onclick="showPage('contact-page', this)">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME PAGE -->
+  <section id="home-page" class="page-section active">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Enhance Your Natural Beauty</h1>
+        <p>your beauty , our identity. Visit ashie's Beauty Parlor for world-class bridal makeup, hair styling, skin treatments, and relaxing spa packages.</p>
+        <button class="btn" onclick="heroBookAppointment()">Book Appointment Now</button>
+      </div>
+      <div class="hero-image">
+        <img src="salon.jpg.jpg" alt="Beauty Salon">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PAGE -->
+  <section id="services-page" class="page-section">
+    <h2 class="section-title">Our Exclusive Services</h2>
+    <p class="section-subtitle">choose you favourite package and give yourself a beautiful new look.</p>
+    
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="bridal.jpg" alt="Bridal Makeup">
+        <h3>Bridal & Party Makeup</h3>
+        <p>HD Bridal Makeup, Engagement & Reception Look with premium international products.</p>
+        <div class="price">Rs. 15,000</div>
+        <button class="btn" onclick="bookServiceAlert('Bridal & Party Makeup')">Book Now</button>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <img src="hair treatment.jpg" alt="Hair Styling">
+        <h3>Hair Care & Styling</h3>
+        <p>Hair Rebonding, Keratin Treatment, Trendy Haircuts & Dyeing.</p>
+        <div class="price">Rs. 5,000</div>
+        <button class="btn" onclick="bookServiceAlert('Hair Care & Styling')">Book Now</button>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <img src="facial.jpg" alt="Facial Care">
+        <h3>Glow Facial & Skincare</h3>
+        <p>Hydra Facial, Organic Glow Facial, and deep cleansing skin treatments.</p>
+        <div class="price">Rs. 3,500</div>
+        <button class="btn" onclick="bookServiceAlert('Glow Facial & Skincare')">Book Now</button>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <img src="nail.jpg" alt="Nail Art">
+        <h3>Manicure & Pedicure</h3>
+        <p>Relaxing Spa Mani-Pedi along with trendy Nail Art and Extensions.</p>
+        <div class="price">Rs. 2,500</div>
+        <button class="btn" onclick="bookServiceAlert('Manicure & Pedicure')">Book Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PAGE -->
+  <section id="gallery-page" class="page-section">
+    <h2 class="section-title">Our Work Gallery</h2>
+    <p class="section-subtitle">beautifull moments with our happy clients and our stunning work</p>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="work1.jpg" alt="Work 1">
+      </div>
+      <div class="gallery-item">
+        <img src="work2.jpg" alt="Work 2">
+      </div>
+      <div class="gallery-item">
+        <img src="work3.jpg" alt="Work 3">
+      </div>
+      <div class="gallery-item">
+        <img src="work4.jpg" alt="Work 4">
+      </div>
+      <div class="gallery-item">
+        <img src="work5.jpg" alt="Work 5">
+      </div>
+      <div class="gallery-item">
+        <img src="work6.jpg"alt="Work 6">
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING PAGE -->
+  <section id="booking-page" class="page-section">
+    <h2 class="section-title">Book An Appointment</h2>
+    <p class="section-subtitle">please confirm your timing and save time</p>
+
+    <div class="booking-container">
+      <form id="appointmentForm" onsubmit="handleConfirmBooking(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="enter your Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="03xx-xxxxxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Select Service</label>
+          <select id="service" required>
+            <option value="">Select Service</option>
+            <option value="Bridal & Party Makeup">Bridal & Party Makeup</option>
+            <option value="Hair Care & Styling">Hair Care & Styling</option>
+            <option value="Glow Facial & Skincare">Glow Facial & Skincare</option>
+            <option value="Manicure & Pedicure">Manicure & Pedicure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Appointment Date</label>
+          <input type="date" id="date" required>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%;">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT PAGE -->
+  <section id="contact-page" class="page-section">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">contact us or visit our parlor</p>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <h3>📍 Location</h3>
+        <p>Main Market Road, Near City Center, Pakistan</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>📞 Phone / WhatsApp</h3>
+        <p>0301-xxxxxxx</p>
+      </div>
+
+      <div class="contact-card">
+        <h3>⏰ Timings</h3>
+        <p>Monday - Sunday: 11:00 AM - 09:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 ashie's Beauty Parlor. All rights reserved.</p>
+  </footer>
+
+  
+  <script src="parlor.js"></script>
+</body>
+</html>
